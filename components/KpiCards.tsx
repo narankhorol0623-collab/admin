@@ -50,7 +50,7 @@ function AnimatedNumber({ stat }: { stat: KpiStat }) {
       : Math.round(display).toLocaleString("en-US");
 
   return (
-    <span className="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">
+    <span className="font-display-lg text-2xl sm:text-3xl lg:text-display-lg font-bold text-on-surface tracking-tight break-words">
       {stat.prefix}
       {formatted}
       {stat.suffix}
@@ -60,7 +60,7 @@ function AnimatedNumber({ stat }: { stat: KpiStat }) {
 
 export default function KpiCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {kpiStats.map((stat, index) => {
         const accent = accentClasses[stat.accent];
         return (
@@ -69,37 +69,37 @@ export default function KpiCards() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-            className="glass-card p-5 flex flex-col relative overflow-hidden group"
+            className="glass-card p-4 sm:p-5 flex flex-col relative overflow-hidden group w-full"
           >
             <div
               className={`absolute -right-4 -top-4 w-16 h-16 rounded-full blur-xl transition-colors ${accent.glow}`}
             />
-            <div className="flex justify-between items-start mb-2">
-              <span className="font-label-md text-label-md text-on-surface-variant tracking-wider uppercase">
+            <div className="flex justify-between items-start mb-2 gap-2">
+              <span className="font-label-md text-xs sm:text-label-md text-on-surface-variant tracking-wider uppercase truncate">
                 {stat.label}
               </span>
               <span
-                className={`material-symbols-outlined ${accent.text} ${accent.bg} p-1.5 rounded-lg text-sm`}
+                className={`material-symbols-outlined ${accent.text} ${accent.bg} p-1.5 rounded-lg text-sm shrink-0`}
               >
                 {stat.icon}
               </span>
             </div>
 
-            <div className="flex items-end gap-3 mt-1">
+            <div className="flex items-end gap-3 mt-1 overflow-hidden">
               <AnimatedNumber stat={stat} />
             </div>
 
             <div
-              className={`flex items-center gap-1 mt-3 font-label-sm text-label-sm ${
+              className={`flex items-center gap-1 mt-3 font-label-sm text-xs sm:text-label-sm ${
                 stat.trend === "up"
                   ? "text-primary-container"
                   : "text-on-surface-variant"
               }`}
             >
-              <span className="material-symbols-outlined text-[14px]">
+              <span className="material-symbols-outlined text-[14px] shrink-0">
                 {stat.trend === "up" ? "trending_up" : "horizontal_rule"}
               </span>
-              <span>{stat.trendLabel}</span>
+              <span className="truncate">{stat.trendLabel}</span>
             </div>
           </motion.div>
         );

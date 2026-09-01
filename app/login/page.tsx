@@ -1,0 +1,18 @@
+"use client";
+
+import LoginPage from "@/components/LoginPage";
+import { useRouter } from "next/navigation";
+
+export default function Page() {
+  const router = useRouter();
+
+  const handleLogin = () => {
+    router.push("/");
+  };
+
+  return (
+    <div className="fixed inset-0 w-full h-full flex items-center justify-center bg-background z-50">
+      <LoginPage onLogin={handleLogin} />
+    </div>
+  );
+}

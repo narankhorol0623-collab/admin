@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import TopBar from "@/components/TopBar";
 import KpiCards from "@/components/KpiCards";
@@ -5,8 +8,20 @@ import AnalyticsChart from "@/components/AnalyticsChart";
 import MilestoneTracker from "@/components/MilestoneTracker";
 import ProjectTable from "@/components/ProjectTable";
 import RecentLeads from "@/components/RecentLeads";
+import LoginPage from "@/components/LoginPage";
 
 export default function DashboardPage() {
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // if (!isAuthenticated) {
+  //   return (
+  //     <div className="fixed inset-0 z-50 bg-background flex items-center justify-center">
+  //       <LoginPage onLogin={() => setIsAuthenticated(true)} />
+  //     </div>
+  //   );
+  // }
+
+  // Нэвтэрсний дараа харагдах Dashboard
   return (
     <>
       <Sidebar />
