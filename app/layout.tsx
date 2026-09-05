@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "ГҮНД САПЛАЙ — ADMIN",
   description: "ГҮНД САПЛАЙ удирдлагын самбар",
   icons: {
-    icon: "/logo.png",
+    icon: "@public/logo.png",
   },
 };
 
